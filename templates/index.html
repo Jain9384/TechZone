@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - TechZONE</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #616161;
+        }
+        .confirmation-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+        .confirmation-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .confirmation-icon {
+            color: #4CAF50;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        .order-details {
+            margin: 30px 0;
+        }
+        .order-items {
+            margin: 20px 0;
+        }
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .order-summary {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .total-row {
+            font-weight: bold;
+            font-size: 18px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .continue-shopping {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="confirmation-header">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Order Confirmed!</h1>
+            <p id="confirmation-email">We've sent a confirmation to your email.</p>
+        </div>
+        
+        <div class="order-details">
+            <h2>Your Order</h2>
+            <div class="order-items" id="order-items">
+                <!-- Items will be loaded here -->
+            </div>
+            
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="shipping">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>GST (18%)</span>
+                    <span id="gst">$0.00</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="total">$0.00</span>
+                </div>
+            </div>
+        </div>
+        
+        <a href="{{ url_for('products') }}" class="continue-shopping">Continue Shopping</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get order details from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+            
+            // Display email in confirmation message
+            if (email) {
+                document.getElementById('confirmation-email').textContent = 
+                    `We've sent a confirmation to ${email}.`;
+            }
+            
+            // Try to get cart items from localStorage (in case they're still there)
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Display order items
+            const orderItemsContainer = document.getElementById('order-items');
+            let subtotal = 0;
+            
+            if (cartItems.length > 0) {
+                cartItems.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'order-item';
+                    itemElement.innerHTML = `
+                        <span>${item.title} x ${item.quantity}</span>
+                        <span>$${itemTotal.toFixed(2)}</span>
+                    `;
+                    orderItemsContainer.appendChild(itemElement);
+                });
+            } else {
+                orderItemsContainer.innerHTML = '<p>No items found in order.</p>';
+            }
+            
+            // Calculate and display totals
+            const shipping = subtotal > 100 ? 0 : 10;
+            const gst = subtotal * 0.18;
+            const total = subtotal + shipping + gst;
+            
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('shipping').textContent = shipping === 0 ? 'Free' : `$${shipping.toFixed(2)}`;
+            document.getElementById('gst').textContent = `$${gst.toFixed(2)}`;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+            
+            // Clear cart after showing confirmation
+            localStorage.removeItem('cart');
+        });
+    </script>
+</body>
+</html>

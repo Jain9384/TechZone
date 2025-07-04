@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechZone Cart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+        <style>
+             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+ /* General Reset */
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Open Sans', sans-serif;
+ }
+
+ body {
+   background-color: #1C1C1E;
+   color: #F2F2F7;
+   overflow-x: hidden;
+ }
+
+ /* Navbar */
+ .navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 20px 5%;
+   background-color: #F2F2F7;
+   color: #1C1C1E;
+   position: fixed;
+   z-index: 1000;
+   width: 100%;
+   backdrop-filter: blur(10px);
+ }
+
+ .navbar div {
+   color: #1C1C1E;
+ }
+
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ .logo {
+   font-family: 'Orbitron', sans-serif;
+   font-size: 28px;
+   font-weight: 700;
+   color: #FF453A;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+ }
+
+ .logo span {
+   color: #0A84FF;
+   text-shadow: 0 0 10px rgba(10, 132, 255, 0.7);
+ }
+
+ nav ul {
+   list-style: none;
+   display: flex;
+   gap: 20px;
+ }
+
+ nav ul li a {
+   text-decoration: none;
+   color: #3A3A3C;
+   font-weight: 600;
+ }
+
+ nav ul li a::after {
+   background-color: #FF453A;
+ }
+
+ nav ul li a:hover::after {
+   width: 100%;
+ }
+
+ .icons span {
+   margin-left: 15px;
+   font-size: 18px;
+   cursor: pointer;
+   color: #3A3A3C;
+ }
+
+
+
+
+ /* Slider */
+ .slider {
+   position: relative;
+   height: 100vh;
+   overflow: hidden;
+ }
+
+ /* Individual Slides */
+ .slide {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: none;
+ }
+
+ .slide.active {
+   display: block;
+   z-index: 1;
+ }
+
+ /* Background Video */
+ .bg-video {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+ }
+
+ /* Hero Overlay */
+ .hero-overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   background-color: rgba(28, 28, 30, 0.6);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 60px;
+   z-index: 2;
+ }
+
+ .hero-content {
+   max-width: 600px;
+   text-align: left;
+ }
+
+ .hero-content h1 {
+   font-family: 'Orbitron', sans-serif;
+   font-size: 64px;
+   font-weight: 700;
+   margin-bottom: 30px;
+   line-height: 1.2;
+   color: #EAEAEA;
+   text-indent: 20px;
+   text-shadow: 0 0 20px rgba(10, 132, 255, 0.5);
+ }
+
+ .hero-content p {
+   font-size: 18px;
+   margin-bottom: 20px;
+   color: #EAEAEA;
+ }
+
+ .shop-btn {
+   padding: 12px 30px;
+   background-color: #F2F2F7;
+   color: #1C1C1E;
+   border: none;
+   font-weight: bold;
+   font-size: 16px;
+   cursor: pointer;
+   border-radius: 4px;
+   transition: all 0.3s ease;
+ }
+
+ .shop-btn:hover {
+   background-color: #7dbeff;
+   color: #F2F2F7;
+ }
+
+ .shop-btn a {
+   text-decoration: none;
+   color: inherit;
+ }
+
+ /* Arrows */
+ .arrow {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   font-size: 50px;
+   color: #F2F2F7;
+   cursor: pointer;
+   z-index: 3;
+   padding: 10px;
+   user-select: none;
+   transition: color 0.3s ease;
+ }
+
+ .arrow:hover {
+   color: #7dbeff;
+ }
+
+ .arrow.left {
+   left: 30px;
+ }
+
+ .arrow.right {
+   right: 30px;
+ }
+
+ /* Services Section */
+ .services {
+   background-color: #F2F2F7;
+   color: #1C1C1E;
+   padding: 50px 20px;
+   text-align: center;
+   position: relative;
+   overflow: hidden;
+ }
+
+ .services h2 {
+   font-size: 2.8rem;
+   margin-bottom: 50px;
+   font-weight: 700;
+   position: relative;
+   display: inline-block;
+   color: #1C1C1E;
+ }
+
+ .services h2::after {
+   content: '';
+   position: absolute;
+   bottom: -15px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 80px;
+   height: 4px;
+   background: linear-gradient(90deg, #7dbeff, #00C2A8);
+   border-radius: 2px;
+ }
+
+ .services-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 35px;
+   margin: 0 auto;
+   max-width: 1300px;
+   perspective: 1000px;
+ }
+
+ .box {
+   background-color: #FFFFFF;
+   border-radius: 16px;
+   padding: 30px 25px;
+   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+   text-align: center;
+   position: relative;
+   overflow: hidden;
+   border: 1px solid rgba(234, 234, 234, 0.5);
+   transform-style: preserve-3d;
+ }
+
+ .box::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background: linear-gradient(90deg, #7dbeff, #00C2A8);
+   opacity: 0;
+   transition: opacity 0.3s ease;
+ }
+
+ .box:hover {
+   transform: translateY(-10px) scale(1.02);
+   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+   border-color: rgba(202, 202, 202, 0.5);
+ }
+
+ .box:hover::before {
+   opacity: 1;
+ }
+
+ .box img {
+   width: 70px;
+   height: 70px;
+   object-fit: contain;
+   margin-bottom: 20px;
+   transition: transform 0.4s ease;
+   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+ }
+
+ .box:hover img {
+   transform: scale(1.15) rotate(5deg);
+ }
+
+ .service-box {
+   font-size: 1.4rem;
+   font-weight: 600;
+   margin: 15px 0;
+   color: #1C1C1E;
+   position: relative;
+   display: inline-block;
+ }
+
+ .service-box::after {
+   content: '';
+   position: absolute;
+   bottom: -8px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 40px;
+   height: 3px;
+   background: #7dbeff;
+   border-radius: 3px;
+   opacity: 0;
+   transition: opacity 0.3s ease, width 0.3s ease;
+ }
+
+ .box:hover .service-box::after {
+   opacity: 1;
+   width: 80px;
+ }
+
+ .box p,
+ .box ul {
+   font-size: 1rem;
+   line-height: 1.7;
+   color: #3A3A3C;
+   margin-top: 15px;
+ }
+
+ .box ul {
+   padding-left: 20px;
+   text-align: left;
+   margin: 15px 0 0;
+ }
+
+ .box ul li {
+   list-style: none;
+   margin-bottom: 8px;
+   position: relative;
+   padding-left: 25px;
+ }
+
+ .box ul li::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 0.65em;
+   width: 8px;
+   height: 8px;
+   background-color: #7dbeff;
+   border-radius: 50%;
+   transform: scale(0);
+   transition: transform 0.3s ease;
+ }
+
+ .box:hover ul li::before {
+   transform: scale(1);
+ }
+
+
+
+ .brand-container>img {
+   width: 100%;
+   height: 100%;
+   max-height: 200px;
+   object-fit: cover;
+   display: block;
+   /* removes bottom space in some cases */
+ }
+
+
+ /* Section Header */
+ /* Brand Section Wrapper */
+ .brand-container {
+   width: 100%;
+   background: #1F2937;
+   /* dark tech background */
+   color: #F2F2F7;
+ }
+
+ /* Section Header */
+ .section-header {
+   text-align: center;
+   margin-bottom: 25px;
+ }
+
+ .section-header img {
+   width: 100%;
+   max-height: 250px;
+   object-fit: cover;
+   border-radius: 12px;
+   margin-bottom: 20px;
+ }
+
+ .section-header h2 {
+   font-size: 36px;
+   font-weight: 800;
+   text-transform: uppercase;
+   color: #F2F2F7;
+   margin: 0;
+   letter-spacing: 1px;
+ }
+
+ /* Brand Grid */
+ .brand-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+   gap: 25px;
+   margin-top: 20px;
+   padding: 50px;
+   margin-top: 20px;
+   margin-left: 130px;
+   margin-right: 130px;
+ }
+
+ /* Brand Card */
+ .brand-card {
+   background: #2C2C2E;
+   border-radius: 10px;
+   padding: 0px 7px;
+   text-align: center;
+   transition: all 0.3s ease;
+   border: 1px solid #3A3A3C;
+   box-shadow: 0 5px 15px rgba(10, 132, 255, 0.05);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100px;
+ }
+
+ .brand-card:hover {
+   transform: translateY(-6px);
+   box-shadow: 0 12px 30px rgba(10, 132, 255, 0.2);
+   border-color: #0A84FF;
+ }
+
+ /* Brand Name */
+ .brand-name {
+   font-weight: 700;
+   font-size: 16px;
+   color: #F2F2F7;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+ }
+
+
+
+ /* Mobile Products */
+ .mobile-products {
+   width: 100%;
+   padding: 25px 0;
+   background: #1F2937;
+ }
+
+
+ .products-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   margin-bottom: 30px;
+   max-width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+ .products-header h2 {
+   font-size: 32px;
+   color: #F2F2F7;
+   margin: 0;
+ }
+
+ .shop-link {
+   text-decoration: none;
+   font-weight: bold;
+   color: #F2F2F7;
+   border-bottom: 1px solid #FF453A;
+   transition: all 0.3s ease;
+ }
+
+ .shop-link:hover {
+   color: #00C2A8;
+   border-bottom-color: #00C2A8;
+ }
+
+ .product-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+   gap: 50px;
+   padding: 10px;
+   max-width: 1200px;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+ .product-card {
+   background-color: #EAEAEA;
+   border-radius: 12px;
+   overflow: hidden;
+   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+
+ .product-card:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 12px 24px rgba(10, 132, 255, 0.2);
+ }
+
+ .product-card img {
+   width: 100%;
+   height: 250px;
+   object-fit: cover;
+ }
+
+ /*.product-card p {
+   font-size: 18px;
+   padding: 15px;
+   color: #FF453A;
+   font-weight: bolder;
+ }*/
+
+ .product-card .price {
+   color: #1C1C1E;
+   font-weight: bold;
+   float: right;
+ }
+
+ /* Sale Section */
+ .new-year-sale {
+   background: url("static/images/sale.jpg") no-repeat center center / cover;
+   height: 80vh;
+   display: flex;
+   align-items: center;
+   padding-left: 80px;
+   color: #F2F2F7;
+   font-family: 'Open Sans', sans-serif;
+   position: relative;
+ }
+
+ .new-year-sale::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   /*background-color: rgba(28, 28, 30, 0.7);*/
+ }
+
+
+
+ /* Define CSS Variables for colors and fonts for easier management */
+ :root {
+   --poppins: 'Poppins', sans-serif;
+   --red-price: #FF4A4A;
+   --text-dark: #333;
+   --text-medium: #666;
+   --text-light: #999;
+   --button-blue: #007bff;
+   --button-blue-hover: #0056b3;
+   --light-purple-bg: #EEE8FC;
+   --light-yellow-bg: #FEF6EB;
+   --light-blue-bg: #E7F6F8;
+   --light-red-bg: #FAE9EB;
+   --light-gray-bg: #F5F5F5;
+   /* General light background for featured card */
+ }
+
+
+ /* Main Layout Container using CSS Grid */
+ .layout-container {
+   display: grid;
+   grid-template-columns: 1fr 2fr 1fr;
+   grid-template-rows: 1fr 1fr;
+   gap: 20px;
+   /*max-width: 1200px;*/
+   padding: 30px;
+   width: 100%;
+
+ }
+
+ /* Common Styles for all Product Cards */
+ .product-card {
+   background-color: #fff;
+   border-radius: 15px;
+   padding: 5px;
+   display: flex;
+   overflow: hidden;
+   position: relative;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+   box-sizing: border-box;
+
+ }
+
+ /* Specific card styling and positioning using grid-column and grid-row */
+
+ /* Card 1: Top-Left (LED Watch) */
+ .product-card-1 {
+   background-color: #EEE8FC;
+   grid-column: 1 / 2;
+   grid-row: 1 / 2;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   padding-bottom: 0;
+ }
+
+ .product-card-1 .content {
+   padding-bottom: 20px;
+ }
+
+ .watch-img {
+   /* Replace with your actual watch image path */
+   background-image: url(images/apple.jpg);
+   background-size: contain;
+   /* Scale image to fit within the content box */
+   background-repeat: no-repeat;
+   background-position: center bottom;
+   /* Position image at the bottom center */
+   width: 100%;
+   height: 65%;
+   /* Adjust height to fit the image properly */
+   align-self: flex-end;
+   /* Push image to the bottom of the flex container */
+ }
+
+
+ /* Featured Product Card: Samsung Galaxy Tab S6 Lite (Center Large Card) */
+ .featured-product {
+   background-color: var(--light-gray-bg);
+   grid-column: 2 / 3;
+   /* Spans column 2 (the middle column) */
+   grid-row: 1 / 3;
+   /* Spans both rows */
+   flex-direction: row;
+   /* Content side-by-side */
+   align-items: center;
+   justify-content: space-between;
+   padding: 40px 30px;
+   /* More padding for a larger card */
+ }
+
+ .featured-product .promo-info {
+   flex: 1;
+   /* Allows text content to take available space */
+   max-width: 50%;
+   /* Limits text width to prevent stretching */
+   z-index: 1;
+   /* Ensure text is above image details if they overlap */
+ }
+
+ .featured-product .promo-tag {
+   font-size: 0.85em;
+   font-weight: 500;
+   color: var(--text-medium);
+   margin-bottom: 5px;
+ }
+
+ .featured-product h1 {
+   font-size: 2.8em;
+   /* Larger font size for the main title */
+   font-weight: 700;
+   line-height: 1.1;
+   /* Tighter line spacing for title */
+   color: var(--text-dark);
+   margin: 10px 0 15px;
+   /* Spacing around the title */
+ }
+
+ .featured-product .promo-details {
+   font-size: 1em;
+   color: var(--text-dark);
+   margin-bottom: 25px;
+ }
+
+ .shop-now-btn {
+   background-color: var(--button-blue);
+   color: #fff;
+   padding: 12px 25px;
+   border: none;
+   border-radius: 8px;
+   font-size: 1.05em;
+   font-weight: 600;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   /* Smooth hover effect */
+   display: inline-flex;
+   /* Allows text and arrow to be side-by-side */
+   align-items: center;
+   gap: 8px;
+   /* Space between text and arrow */
+ }
+
+ .shop-now-btn:hover {
+   background-color: var(--button-blue-hover);
+ }
+
+ .shop-now-btn .arrow-icon {
+   font-size: 1.2em;
+   line-height: 1;
+   /* Ensures arrow is vertically centered */
+ }
+
+ .featured-product .image-container-tablet {
+   position: relative;
+   /* For absolute positioning of tablet and case */
+   flex: 1;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-width: 350px;
+   /* Ensure space for images */
+ }
+
+ .tablet-mockup {
+   width: 280px;
+   height: 200px;
+   /* Replace with your actual tablet image path */
+   background-image: url(images/samsung\ tab.jpg);
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+   position: absolute;
+   left: 20%;
+   top: 50%;
+   transform: translateY(-50%) rotate(-5deg);
+   z-index: 2;
+   
+ }
+
+ .case-mockup {
+   width: 250px;
+   height: 300px;
+   /* Replace with your actual case image path */
+   background-image:url(images/samsung\ tab.jpg);
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+   position: absolute;
+   right: 15%;
+   /* Adjust position for the case */
+   top: 50%;
+   transform: translateY(-50%) rotate(5deg);
+  
+   z-index: 1;
+   
+ }
+
+ .pagination-dots {
+   position: absolute;
+   bottom: 20px;
+   left: 50%;
+   transform: translateX(-50%);
+   /* Center dots horizontally */
+   display: flex;
+   gap: 8px;
+   /* Space between dots */
+ }
+
+ .pagination-dots .dot {
+   width: 10px;
+   height: 10px;
+   background-color: rgba(0, 0, 0, 0.3);
+   /* Grey for inactive dots */
+   border-radius: 50%;
+   /* Circle shape */
+   cursor: pointer;
+ }
+
+ .pagination-dots .dot.active {
+   background-color: rgba(0, 0, 0, 0.8);
+   /* Darker for active dot */
+   width: 20px;
+   /* Longer for active dot */
+   border-radius: 5px;
+   /* Rectangle shape for active dot */
+ }
+
+ /* Card 2: Top-Right (Wireless Pro Controller) */
+ .product-card-2 {
+   background-color: var(--light-yellow-bg);
+   grid-column: 3 / 4;
+   /* Spans column 3 */
+   grid-row: 1 / 2;
+   /* Spans row 1 */
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   padding-bottom: 0;
+ }
+
+ .controller-img {
+   /* Replace with your actual controller image path */
+   background-image: url(images/samsung\ tab.jpg);
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center bottom;
+   width: 100%;
+   height: 50%;
+   align-self: flex-end;
+ }
+
+ /* Card 3: Bottom-Left (Toaster Retro) */
+ .product-card-3 {
+   background-color: var(--light-blue-bg);
+   grid-column: 1 / 2;
+   /* Spans column 1 */
+   grid-row: 2 / 3;
+   /* Spans row 2 */
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   padding-bottom: 0;
+ }
+
+ .toaster-img {
+   /* Replace with your actual toaster image path */
+   background-image: url(images/apple.jpg);
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center bottom;
+   width: 100%;
+   height: 55%;
+   align-self: flex-end;
+ }
+
+
+ /* Card 4: Bottom-Right (Bluetooth Headphones) */
+ .product-card-4 {
+   background-color: var(--light-red-bg);
+   grid-column: 3 / 4;
+   /* Spans column 3 */
+   grid-row: 2 / 3;
+   /* Spans row 2 */
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+   padding-bottom: 0;
+ }
+
+ .headphones-img {
+   /* Replace with your actual headphones image path */
+   background-image: url(images/apple.jpg);
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center bottom;
+   width: 100%;
+   height: 60%;
+   align-self: flex-end;
+ }
+
+ /* General Text Styling for Cards (Applies to cards other than featured) */
+ .product-card .content {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   /* Space between text elements */
+   width: 100%;
+   /* Ensures content takes full width */
+ }
+
+ .product-card h2 {
+   font-size: 1.6em;
+   font-weight: 600;
+   color: var(--text-dark);
+   margin: 0;
+   line-height: 1.2;
+ }
+
+ .product-card .category-text,
+ .product-card .quality-text {
+   font-size: 0.9em;
+   color: var(--text-medium);
+   margin: 0;
+ }
+
+ .product-card .price-info {
+   margin-top: 10px;
+ }
+
+ .product-card .discount {
+   text-decoration: line-through;
+   /* Strikethrough for old price */
+   color: var(--text-light);
+   font-size: 0.9em;
+ }
+
+ .product-card .current-price {
+   font-size: 1.8em;
+   font-weight: 700;
+   color: var(--red-price);
+   margin: 0;
+ }
+
+ .product-card .price-just,
+ .product-card .save-up {
+   font-size: 0.9em;
+   color: var(--text-medium);
+   margin-bottom: 5px;
+ }
+
+ /* Common styles for image placeholders (applied as background-image in specific classes) */
+ .image-placeholder {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .new-year-sale .sale-content a {
+   text-decoration: none;
+   margin-top: 20px;
+ }
+
+ .new-year-sale .sale-content h1 {
+   padding-bottom: 20px;
+ }
+
+ .sale-content {
+   background-color: rgba(28, 28, 30, 0.7);
+   padding: 40px;
+   border-radius: 10px;
+   position: relative;
+   z-index: 1;
+ }
+
+ .discount {
+   font-size: 20px;
+   margin-bottom: 10px;
+   color: #00C2A8;
+ }
+
+ .sale-content h1 {
+   font-size: 60px;
+   margin: 0;
+   line-height: 1.2;
+ }
+
+ /* Blog Section */
+ .blog-posts {
+   margin: 0 auto;
+   padding: 40px 20px;
+   font-family: 'Arial', sans-serif;
+   background: linear-gradient(135deg, #1E3C72, #2A5298);
+
+}
+
+ .blog-posts h2 {
+   color: #fbfbfb;
+   font-weight: 700;
+   font-size: 40px;
+   font-family: 'Orbitron', sans-serif;
+ }
+
+ .header {
+   text-align: center;
+   margin-bottom: 40px;
+   font-size: 18px;
+   padding: 0 20px;
+   color: #3A3A3C;
+ }
+
+ .header span:first-child {
+   color: #FF453A;
+ }
+
+ .header span:last-child {
+   color: #3A3A3C;
+ }
+
+ .video-comment-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 30px;
+   margin-bottom: 60px;
+   max-height: 60vh;
+   overflow: hidden;
+
+ }
+
+ .testimonial-section {
+   background-color: #f8fafc;
+   padding: 30px;
+   border-radius: 12px;
+   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+   font-family: 'Segoe UI', sans-serif;
+   max-width: 720px;
+   margin: 0 auto;
+ }
+
+ .testimonial-title {
+   font-size: 26px;
+   font-weight: 800;
+   color: #222;
+   margin-bottom: 15px;
+   text-align: center;
+ }
+
+ .testimonial {
+   margin-bottom: 10px;
+   padding: 20px;
+   background: #fff;
+   border-left: 4px solid #3b82f6;
+   border-radius: 8px;
+ }
+
+ .testimonial-text {
+   font-size: 16px;
+   color: #444;
+   margin-bottom: 10px;
+   line-height: 1.6;
+ }
+
+ .testimonial-author {
+   font-weight: 600;
+   font-size: 14px;
+   color: #111;
+ }
+
+
+
+ .blog-video {
+   flex: 1;
+   min-width: 300px;
+   border-radius: 8px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   /* This would ideally be a video element, not just a div */
+   background-color: #333;
+   /* Placeholder background */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   font-size: 1.5em;
+   background-color: rgba(0, 0, 0, 0.0); /* Transparent or semi-transparent */
+    z-index: 1000; /* Make sure it's above the video */
+    pointer-events: auto; 
+
+ }
+
+ .post-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 30px;
+   margin: 40px 0;
+ }
+
+ .divider {
+   border: 0;
+   height: 1px;
+   background-color: #3A3A3C;
+   margin: 50px 0;
+ }
+
+ .ecom-blog2-section h2 {
+   text-align: center;
+   font-size: 32px;
+   margin-bottom: 40px;
+   color: #1C1C1E;
+ }
+
+ .blog2-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+   gap: 30px;
+ }
+
+ .blog2-card {
+   background: #FFFFFF;
+   border-radius: 8px;
+   overflow: hidden;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   transition: transform 0.3s ease;
+ }
+
+ .blog2-card:hover {
+   transform: translateY(-5px);
+ }
+
+ .blog2-card img {
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+ }
+
+ .blog-content {
+   padding: 20px;
+ }
+
+ .blog-content h3 {
+   font-size: 18px;
+   margin-bottom: 10px;
+   color: #1C1C1E;
+ }
+
+ .blog-meta {
+   font-size: 14px;
+   color: #3A3A3C;
+   margin-bottom: 15px;
+ }
+
+ .blog-content p {
+   color: #1C1C1E;
+   margin-bottom: 20px;
+   line-height: 1.5;
+ }
+
+ .read-more {
+   color: #0A84FF;
+   text-decoration: none;
+   font-weight: bold;
+   transition: color 0.3s ease;
+ }
+
+ .read-more:hover {
+   color: #00C2A8;
+ }
+
+ /* Footer */
+ .footer {
+   background:#111827;
+   color: #F2F2F7;
+   padding: 60px 0 20px;
+   font-family: 'Arial', sans-serif;
+ }
+
+ .footer-container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 0px;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 40px;
+ }
+
+ .footer-column {
+   margin-bottom: 30px;
+ }
+
+ .footer .logo {
+   font-size: 28px;
+   font-weight: bold;
+   margin-bottom: 20px;
+   color: #F2F2F7;
+ }
+
+ .footer .logo span {
+   color: #FF453A;
+ }
+
+ .footer-text {
+   color: #EAEAEA;
+   line-height: 1.6;
+   margin-bottom: 20px;
+   font-size: 14px;
+   opacity: 0.9;
+ }
+
+ .social-icons {
+   display: flex;
+   gap: 15px;
+   margin-top: 20px;
+ }
+
+ .social-icons i {
+   color: #F2F2F7;
+   background-color: #3A3A3C;
+   width: 36px;
+   height: 36px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   font-size: 14px;
+ }
+
+ .social-icons i:hover {
+   background-color: #f41212;
+   transform: translateY(-3px);
+ }
+
+ .footer-column h4 {
+   color: #00C2A8;
+   font-size: 18px;
+   margin-bottom: 20px;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   position: relative;
+   padding-bottom: 10px;
+ }
+
+ .footer-column h4::after {
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 40px;
+   height: 2px;
+   background-color: #f51e1e;
+ }
+
+ .footer-column ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+ }
+
+ .footer-column ul li {
+   margin-bottom: 12px;
+ }
+
+ .footer-column ul li a {
+   color: #EAEAEA;
+   text-decoration: none;
+   transition: all 0.3s ease;
+   font-size: 14px;
+   opacity: 0.9;
+ }
+
+ .footer-column ul li a:hover {
+   color: #fe2626;
+   padding-left: 5px;
+ }
+
+ .footer-column p {
+   margin: 0 0 15px;
+   color: #EAEAEA;
+   font-size: 14px;
+   line-height: 1.6;
+   opacity: 0.9;
+ }
+
+ .footer-column p strong {
+   color: #F2F2F7;
+   font-size: 16px;
+ }
+
+ .footer-column a[href^="mailto:"] {
+   color: #0A84FF;
+   text-decoration: none;
+   transition: opacity 0.3s ease;
+ }
+
+ .footer-column a[href^="mailto:"]:hover {
+   opacity: 0.8;
+ }
+
+ .newsletter-form {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+ }
+
+ .newsletter-form input {
+   padding: 12px 15px;
+   border: none;
+   border-radius: 4px;
+   background-color: #3A3A3C;
+   color: #F2F2F7;
+   font-size: 14px;
+ }
+
+ .newsletter-form input::placeholder {
+   color: #EAEAEA;
+   opacity: 0.7;
+ }
+
+ .newsletter-form button {
+   background-color: #0A84FF;
+   color: #F2F2F7;
+   border: none;
+   padding: 12px 20px;
+   border-radius: 4px;
+   cursor: pointer;
+   font-weight: bold;
+   transition: background-color 0.3s ease;
+   text-transform: uppercase;
+   font-size: 14px;
+   letter-spacing: 1px;
+ }
+
+ .newsletter-form button:hover {
+   background-color: #0077CC;
+ }
+
+ .copyright {
+   grid-column: 1 / -1;
+   text-align: center;
+   padding: 10px 0;
+   border-top: 1px solid #3A3A3C;
+   margin-top: 5px;
+ }
+
+ .copyright p {
+   color: #EAEAEA;
+   font-size: 14px;
+   opacity: 0.7;
+   margin: 0;
+ }
+
+ /* Responsive Styles */
+ @media (max-width: 768px) {
+   .hero-content h1 {
+     font-size: 48px;
+   }
+
+   .hero-overlay {
+     padding: 30px;
+   }
+
+   .services h2 {
+     font-size: 2.2rem;
+   }
+
+   .footer-container {
+     grid-template-columns: 1fr;
+     gap: 30px;
+   }
+
+   .new-year-sale {
+     padding-left: 30px;
+     justify-content: center;
+     text-align: center;
+   }
+
+   .sale-content h1 {
+     font-size: 48px;
+   }
+   .mobile-menu-btn {
+        display: block;
+    }
+ }
+
+ @media (max-width: 480px) {
+   .hero-content h1 {
+     font-size: 36px;
+   }
+
+   .navbar {
+     flex-direction: column;
+     padding: 15px;
+   }
+
+   nav ul {
+     margin-top: 15px;
+     flex-wrap: wrap;
+     justify-content: center;
+   }
+
+   .products-header {
+     flex-direction: column;
+     gap: 15px;
+   }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+@media (max-width: 768px) {
+    .nav-links, .icons {
+        display: none;
+    }
+    
+    .nav-links.show, .icons.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on your header height */
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+}
+        </style>
+</head>
+
+<body>
+    <!-- navbar Container -->
+    <header class="navbar">
+        <div class="logo">Tech<span style="color: red; font-family:'Orbitron', sans-serif;">ZONE..</span></div>
+
+        <button class="mobile-menu-btn">☰</button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#mobile-products">Products</a></li>
+                <li><a href="#sale">Sale</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <a href="{{ url_for('logout') }}" style="color: rgb(255, 61, 61); text-decoration: none; font-weight: bold;">
+  <i class="fas fa-user"></i> LOGOUT
+</a>
+
+            </ul>
+        </nav>
+        <!--<div class="icons">
+            <span><i class="fas fa-search"></i></span>
+            <span><i class="fas fa-user"></i></span>
+            <span><i class="fas fa-shopping-cart"></i></span>
+        </div>-->
+    </header>
+
+    <!-- Slideshow Container -->
+    <section id="hero" class="slider">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <video autoplay muted loop playsinline class="bg-video">
+                <source src="static/images/backgroundvideo.mp4" type="video/mp4" />
+            </video>
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Future Tech<br>At Your Fingertips</h1>
+                    <p>Discover cutting-edge technology that transforms the way you live, work, and play.</p>
+                    <!--<button class="shop-btn"><a href="templates/products.html">Shop Product</a></button>-->
+                    <a href="{{ url_for('products') }}">
+  <button class="shop-btn">Shop Product</button>
+</a>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <video autoplay muted loop playsinline class="bg-video">
+                <source src="static/images/backgroundvideo2.mp4" type="video/mp4" />
+            </video>
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Welcome to Tech<span style="color: red;">ZONE..</span></h1>
+                    <p>Your gateway to the latest technology insights, tutorials, and a thriving community of
+                        innovators.</p>
+                    <button class="shop-btn"><a href="#blog-posts">Browse Latest Articles</a></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arrows -->
+        <div class="arrow left" onclick="changeSlide(-1)">‹</div>
+        <div class="arrow right" onclick="changeSlide(1)">›</div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <!-- Service Box 1 -->
+            <div class="box">
+                <img src="static/images/payment.png" alt="payment">
+                <div class="service-box">Secure Payment Gateway</div>
+                <p>Multiple payment options: Credit/Debit Card, UPI, Wallets, Net Banking.</p>
+            </div>
+
+            <!-- Service Box 2 -->
+            <div class="box">
+                <img src="static/images/delivery-man.png" alt="delivery">
+                <div class="service-box"> Fast & Reliable Delivery</div>
+                <ul>
+                    <li>Express shipping options.</li>
+                    <li>Real-time order tracking.</li>
+                    <li>Free delivery above a certain order value</li>
+                </ul>
+            </div>
+
+            <!-- Service Box 3 -->
+            <div class="box">
+                <img src="static/images/support.png" alt="support">
+                <div class="service-box"> Customer Support</div>
+                <p>24/7 live chat or call center.</p>
+            </div>
+
+            <!-- Service Box 4 -->
+            <div class="box">
+                <img src="static/images/return.png" alt="ruturn an replacement">
+                <div class="service-box">Easy Returns & Replacements</div>
+                <ul>
+                    <li>Hassle-free 7/10/30-day return policies.</li>
+                    <li>Free pickup for return items.</li>
+                    <li>Instant refund or replacement processing.</li>
+                </ul>
+            </div>
+
+            <!-- Service Box 5 -->
+            <div class="box">
+                <img src="static/images/warranty.png" alt="warranty">
+                <div class="service-box"> Product Warranty & Service</div>
+                <ul>
+                    <li>Manufacturer warranty info listed on product pages</li>
+                    <li>On-site service or support booking.</li>
+                    <li>Extended warranty options.</li>
+                </ul>
+            </div>
+
+            <!-- Service Box 6 -->
+            <div class="box">
+                <img src="static/images/offer.png" alt="offer">
+                <div class="service-box">Offers & Deals</div>
+                <ul>
+                    <li>Flash sales, bundle deals, festival offers.</li>
+                    <li>Discount coupons and cashback.</li>
+                    <li>Student or business discounts.</li>
+                </ul>
+            </div>
+
+            <!-- Service Box 7 -->
+            <div class="box">
+                <img src="static/images/user.png" alt="user">
+                <div class="service-box"> User Accounts & Order Management</div>
+                <ul>
+                    <li>Track orders and delivery.</li>
+                    <li>Manage returns, address book, saved items.</li>
+                    <li>Wishlist and cart features.</li>
+                </ul>
+            </div>
+
+            <!-- Service Box 8 -->
+            <div class="box">
+                <img src="static/images/rating.png" alt="">
+                <div class="service-box"> Product Reviews & Ratings</div>
+                <ul>
+                    <li>Verified buyer reviews.</li>
+                    <li>Star ratings and feedback section.</li>
+                    <li>Q&A for customer questions.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="brand-container">
+        <div class="section-header">
+            <img src="static/images/products-title.jpg" alt="">
+            <h2 style="color: #FFD700;">Premium Brands</h2>
+
+        </div>
+
+        <div class="brand-grid">
+            <!-- Row 1 -->
+            <div class="brand-card">
+                <div class="brand-name">ONEPLUS</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Tencent</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Apple</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Microsoft</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Lenovo</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">HUAWEI</div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="brand-card">
+                <div class="brand-name">nexus</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Google</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Firefox</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">NVIDIA</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">brave</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">facebook</div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="brand-card">
+                <div class="brand-name">Tesla </div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Intel</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Amazon</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Sony</div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">TSMC </div>
+            </div>
+            <div class="brand-card">
+                <div class="brand-name">Samsung</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mobile-products" class="mobile-products">
+        <div class="products-header">
+            <h2>MORE TECH PRODUCTS</h2>
+            <a href="{{ url_for('products') }}" class="shop-link">GO TO SHOP</a>
+        </div>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="static/images/drone.jpg" alt="iPhone 10">
+            </div>
+            <div class="product-card">
+                <img src="static/images/vr.jpg" alt="iPhone 11">
+            </div>
+            <div class="product-card">
+                <img src="static/images/playstation.jpg" alt="iPhone 8">
+            </div>
+            <div class="product-card">
+                <img src="static/images/monitor.jpg" alt="iPhone 13">
+            </div>
+        </div>
+    </section>
+
+    <section id="sale" class="new-year-sale">
+        <div class="sale-content">
+            <p class="discount">10% off</p>
+            <h1>NEW YEAR</h1>
+            <h1>SALE</h1>
+            <a href="#" class="shop-btn">SHOP SALE</a>
+        </div>
+    </section>
+
+    <section class="layout-container">
+
+        <div class="product-card product-card-1">
+            <div class="content">
+                <p class="category-text">Best 2022</p>
+                <h2>LED Watch</h2>
+                <p class="quality-text">High Quality</p>
+                <div class="price-info">
+                    <p class="discount">$199.99</p>
+                    <p class="current-price">$59.99</p>
+                </div>
+            </div>
+            <div class="image-placeholder watch-img">
+            </div>
+        </div>
+
+        <div class="product-card featured-product">
+            <div class="promo-info">
+                <p class="promo-tag">WEEKEND PROMOTIONS</p>
+                <h1>Samsung <br>Galaxy Tab <br></h1>
+                <p class="promo-details">Get $50 - $100 off when buying online.</p>
+                <button class="shop-now-btn">Shop Now <span class="arrow-icon">&rarr;</span></button>
+            </div>
+            <div class="image-container-tablet">
+                <div class="tablet-mockup"></div>
+                <div class="case-mockup"></div>
+            </div>
+            <div class="pagination-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <div class="product-card product-card-2">
+            <div class="content">
+                <h2>Wireless Pro <br>Controller</h2>
+                <p class="category-text">Gaming</p>
+                <div class="price-info">
+                    <p class="price-just">Price just</p>
+                    <p class="current-price">$99.99</p>
+                </div>
+            </div>
+            <div class="image-placeholder controller-img">
+            </div>
+        </div>
+
+        <div class="product-card product-card-3">
+            <div class="content">
+                <p class="category-text">End Season</p>
+                <h2>Toaster Retro</h2>
+                <p class="quality-text">Hottest</p>
+                <div class="price-info">
+                    <p class="save-up">Save up</p>
+                    <p class="current-price">$39.99</p>
+                </div>
+            </div>
+            <div class="image-placeholder toaster-img">
+            </div>
+        </div>
+
+        <div class="product-card product-card-4">
+            <div class="content">
+                <h2>Bluetooth <br>Headphones</h2>
+                <p class="quality-text">Wireless</p>
+                <div class="price-info">
+                    <p class="discount">$199.99</p>
+                    <p class="current-price">$59.99</p>
+                </div>
+            </div>
+            <div class="image-placeholder headphones-img">
+            </div>
+        </div>
+
+    </section>
+
+    <section id="blog" class="blog-posts"class="blog-posts">
+        <div class="header">
+            <h2 style="padding-bottom: 5px;">BLOG</h2>
+            <p style="color: rgb(255, 59, 59); font-weight: bold;">Focus on Trending Technologies,
+                <span style="color:  rgb(0, 0, 0); font-weight: bold;"> Practical Applications, and Clear
+                    Communication</span>
+            </p>
+        </div>
+
+        <div class="video-comment-container">
+
+            <div class="testimonial-section">
+                <h3 class="testimonial-title">What Our Customers Say</h3>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"The checkout process was super smooth and fast. Loved the product
+                        quality too!"</p>
+                    <span class="testimonial-author">— John Doe, Software Engineer</span>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"The UI is intuitive, and shipping was lightning quick. Tech made
+                        simple!"</p>
+                    <span class="testimonial-author">— Jane Smith, Product Manager</span>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">"Great e-commerce experience. I could track my order in real-time and
+                        the support team was amazing."</p>
+                    <span class="testimonial-author">— Alice Brown, UX Designer</span>
+                </div>
+            </div>
+
+
+            <div class="blog-video">
+                <video controls width="100%" height="100%" style="object-fit: cover;" autoplay muted loop playsinline>
+                    <source src="static/images/blog2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+
+
+        <hr class="divider">
+
+        <div class="ecom-blog2-section">
+            <h2>More From our Blog</h2>
+            <div class="blog2-container">
+                <div class="blog2-card">
+                    <img src="static/images/camera.jpg" alt="Blog Image">
+                    <div class="blog-content">
+                        <h3>Exploring New Tech Gadgets</h3>
+                        <p class="blog-meta">Tech Reviews | June 10, 2025</p>
+                        <p>Dive into the latest innovations and discover what's new in the world of technology and
+                            gadgets.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="blog2-card">
+                    <img src="static/images/robot.jpg" alt="Blog Image">
+                    <div class="blog-content">
+                        <h3>The Future of Robotics</h3>
+                        <p class="blog-meta">Revolutionizing Our World | June 29, 2025</p>
+                        <p> The future of robotics holds transformative potential across industries and daily life.
+                        </p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="blog2-card">
+                    <img src="static/images/AI.jpg" alt="Blog Image">
+                    <div class="blog-content">
+                        <h3>The Future of Artificial Intelligence</h3>
+                        <p class="blog-meta">Shaping Tomorrow’s World| June 8, 2025</p>
+                        <p>The future of AI promises to unlock new levels of automation, intelligence, and human-machine collaboration across every domain.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="blog2-card">
+                    <img src="static/images/monitor.jpg" alt="Blog Image">
+                    <div class="blog-content">
+                        <h3>Monitors</h3>
+                        <p class="blog-meta">An Essential Display Device | June 7, 2025</p>
+                        <p>A monitor is a vital output device that displays information from your computer in visual form. 
+                        </p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Company Info -->
+            <div class="footer-column">
+                <h2 class="logo">Tech<span>ZONE..</span></h2>
+                <p class="footer-text">
+                    Discover the Future of Smart Tech Today.Advanced Tech for Everyday Convenience.Upgrade Your Gear
+                    with Trusted Brands
+                </p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Sale</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- Help Section -->
+            <div class="footer-column">
+                <h4>HELP & INFO HELP</h4>
+                <ul>
+                    <li><a href="#">TRACK YOUR ORDER</a></li>
+                    <li><a href="#">RETURNS POLICIES</a></li>
+                    <li><a href="#">SHIPPING + DELIVERY</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+                    <li><a href="#">FAQS</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-column">
+                <h4>CONTACT US</h4>
+                <p class="footer-text">Do you have any queries or suggestions?</p>
+                <p><a href="mailto:yourinfo@gmail.com">TechZ@negmail.com</a></p>
+                <p class="footer-text">If you need support? Just give us a call.</p>
+                <p><strong>+91 7771 66662 33</strong></p>
+            </div>
+            <div class="footer-column">
+                <h4>Newsletter Sign-Up</h4>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Join</button>
+                </form>
+            </div>
+            <div class="copyright">
+
+                <p>© 2025 Discover the Future of Smart Tech Today. All rights reserved
+                    TechZone. </p>
+            </div>
+    </footer>
+
+
+    <script>
+
+        // Mobile menu toggle functionality
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+const icons = document.querySelector('.icons'); // Changed from navButtons to icons
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('show');
+        if (icons) {
+            icons.classList.toggle('show');
+        }
+    });
+}
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+        navLinks.classList.remove('show');
+        if (icons) {
+            icons.classList.remove('show');
+        }
+    });
+});
+
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function changeSlide(dir) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + dir + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

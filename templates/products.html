@@ -1,0 +1,3660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechZone products...</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="products.css">
+  <script src="rough.js"></script>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #10b981;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --danger: #ef4444;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+
+
+    /* Navigation */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 5%;
+      background-color: #F2F2F7;
+      color: #1C1C1E;
+      position: fixed;
+      z-index: 1000;
+      width: 100%;
+      backdrop-filter: blur(10px);
+
+    }
+
+    .navbar div {
+      color: #1C1C1E;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #FF453A;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #0A84FF;
+      text-shadow: 0 0 10px rgba(10, 132, 255, 0.7);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #3A3A3C;
+      font-weight: 600;
+    }
+
+    nav ul li a::after {
+      background-color: #FF453A;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .icons span {
+      margin-left: 15px;
+      font-size: 18px;
+      cursor: pointer;
+      color: #3A3A3C;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-container {
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background-color: white;
+      color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background-color: white;
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100px;
+      margin-top: 30px;
+
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 5%;
+      height: 450px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    } */
+
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.3;
+    }
+
+    /* Categories Section */
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .category-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      border: 1px solid #e2e8f0;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .category-icon {
+      width: 80px;
+      height: 80px;
+      background-color: #e0f2fe;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      color: var(--primary);
+      font-size: 32px;
+    }
+
+    .category-card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .category-card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* Featured Products */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      position: relative;
+      border: 1px solid #e2e8f0;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: var(--danger);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      z-index: 2;
+    }
+
+
+    .product-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-category {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .product-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .stars {
+      color: var(--warning);
+    }
+
+    .rating-count {
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .current-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .old-price {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: line-through;
+    }
+
+    .discount {
+      color: var(--success);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .add-to-cart {
+      flex: 1;
+      background-color: var(--primary);
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-to-cart:hover {
+      background-color: var(--primary-dark);
+    }
+
+
+
+    /* Deals Section */
+    .deals-section {
+      background-color: #1e293b;
+      /* Dark background */
+      color: white;
+      padding: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .deals-container {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .deals-content {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .deals-content h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .deals-content p {
+      opacity: 0.9;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    /* Banner Styles */
+    .banner {
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      color: white;
+      padding: 1.5rem;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+    }
+
+    .banner-overlay-small {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+    }
+
+    /* Large Sale Banner */
+    .banner-sale {
+      background-color: #4778ff;
+      /* background-image: url("https://images.unsplash.com/photo-1606813909027-1466b3d4d6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"); */
+      min-height: 300px;
+      display: flex;
+      align-items: flex-end;
+      text-align: center;
+    }
+
+    .banner-sale .banner-content {
+      z-index: 10;
+      position: relative;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .banner-sale h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .banner-sale p {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Right Side Banners Container */
+    .right-banners {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Small Banners */
+    .banner-small {
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .banner-combo {
+      background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');
+    }
+
+    .banner-discount {
+      background-image: url('https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');
+    }
+
+    .banner-small .banner-content {
+      z-index: 10;
+      position: relative;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .banner-small h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .banner-small p {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Shop Now Button */
+    .shop-now-button {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      display: inline-block;
+      color: white;
+    }
+
+    .shop-now-button:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      border-color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Adjust button size for smaller banners */
+    .banner-small .shop-now-button {
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+    }
+
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-primary {
+      background-color: white;
+      color: #2563eb;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Brands Section */
+    .brands {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 30px 0;
+    }
+
+    .brand-item {
+      opacity: 0.6;
+      transition: opacity 0.3s;
+      filter: grayscale(100%);
+    }
+
+    .brand-item:hover {
+      opacity: 1;
+      filter: grayscale(0);
+    }
+
+    .brand-item img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+
+
+
+    /* Countdown Timer */
+    .sections {
+      padding: 2rem 0;
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* Product Grid */
+    .Product-grid1 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* Product Card */
+    .product-card1 {
+      background: var(--white);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      border: 1px solid var(--light-gray);
+    }
+
+    .product-card1:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Product Badge */
+    .product-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      background-color: var(--danger);
+      color: var(--white);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      z-index: 10;
+      text-transform: uppercase;
+    }
+
+    /* Product Image */
+    .product-image1,
+    .product-image {
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image1 img,
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .product-card1:hover .product-image1 img,
+    .product-card1:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    /* Product Info */
+    .product-info {
+      padding: 1rem;
+    }
+
+    .product-category {
+      color: var(--gray);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 2.5rem;
+      line-height: 1.3;
+    }
+
+    /* Product Rating */
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .stars {
+      color: var(--warning);
+      font-size: 0.8rem;
+    }
+
+    .rating-count {
+      color: var(--gray);
+      font-size: 0.75rem;
+    }
+
+    /* Product Price */
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .current-price {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .old-price {
+      font-size: 0.875rem;
+      color: var(--gray);
+      text-decoration: line-through;
+    }
+
+    .discount {
+      color: var(--success);
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    /* Product Actions */
+    .product-actions {
+      display: flex;
+    }
+
+    .add-to-cart {
+      flex: 1;
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .add-to-cart:hover {
+      background-color: var(--primary-dark);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Newsletter */
+    .newsletter {
+      background-color: var(--primary);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .newsletter p {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+
+    .newsletter-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 15px 20px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .newsletter-form button {
+      background-color: var(--dark);
+      color: white;
+      padding: 0 25px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      background-color: #0f172a;
+    }
+
+    /* Footer */
+    .footer {
+      background: #111827;
+      color: #F2F2F7;
+      padding: 60px 0 20px;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 0px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-column {
+      margin-bottom: 30px;
+    }
+
+    .footer .logo {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #F2F2F7;
+    }
+
+    .footer .logo span {
+      color: #FF453A;
+    }
+
+    .footer-text {
+      color: #EAEAEA;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons i {
+      color: #F2F2F7;
+      background-color: #3A3A3C;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .social-icons i:hover {
+      background-color: #f41212;
+      transform: translateY(-3px);
+    }
+
+    .footer-column h4 {
+      color: #00C2A8;
+      font-size: 18px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background-color: #f51e1e;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column ul li a {
+      color: #EAEAEA;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .footer-column ul li a:hover {
+      color: #fe2626;
+      padding-left: 5px;
+    }
+
+    .footer-column p {
+      margin: 0 0 15px;
+      color: #EAEAEA;
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .footer-column p strong {
+      color: #F2F2F7;
+      font-size: 16px;
+    }
+
+    .footer-column a[href^="mailto:"] {
+      color: #0A84FF;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-column a[href^="mailto:"]:hover {
+      opacity: 0.8;
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .newsletter-form input {
+      padding: 12px 15px;
+      border: none;
+      border-radius: 4px;
+      background-color: #3A3A3C;
+      color: #F2F2F7;
+      font-size: 14px;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #EAEAEA;
+      opacity: 0.7;
+    }
+
+    .newsletter-form button {
+      background-color: #0A84FF;
+      color: #F2F2F7;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .newsletter-form button:hover {
+      background-color: #0077CC;
+    }
+
+    .copyright {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 10px 0;
+      border-top: 1px solid #3A3A3C;
+      margin-top: 5px;
+    }
+
+    .copyright p {
+      color: #EAEAEA;
+      font-size: 14px;
+      opacity: 0.7;
+      margin: 0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 100%;
+        margin-bottom: 40px;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .deals-container {
+        flex-direction: column;
+      }
+
+      .deals-content {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .countdown {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .search-bar {
+        margin: 15px 0;
+        width: 100%;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        display: none;
+      }
+
+      .nav-links li:hover .dropdown-menu {
+        display: block;
+      }
+
+      .nav-extra {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+      }
+
+      .newsletter h2 {
+        font-size: 28px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        background-color: transparent;
+        gap: 10px;
+      }
+
+      .newsletter-form input,
+      .newsletter-form button {
+        width: 100%;
+        border-radius: 8px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .countdown {
+        gap: 10px;
+      }
+
+      .countdown-item {
+        min-width: 70px;
+        padding: 10px;
+      }
+
+      .countdown-number {
+        font-size: 24px;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+    }
+
+    /* Layout for larger screens */
+    @media (min-width: 1024px) {
+      .deals-container>.container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        flex: 1;
+      }
+
+      .banner-sale {
+        min-height: 450px;
+      }
+
+      .banner-sale h2 {
+        font-size: 3rem;
+      }
+
+      .banner-sale p {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .deals-container {
+        flex-direction: column;
+      }
+
+      .deals-content {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .deals-container>.container {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .deals-content h2 {
+        font-size: 28px;
+      }
+
+      .deals-content p {
+        font-size: 16px;
+      }
+
+      .banner-sale h2 {
+        font-size: 1.5rem;
+      }
+
+      .banner-sale p {
+        font-size: 1.125rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .deals-section {
+        padding: 40px 0;
+      }
+
+      .banner {
+        padding: 1rem;
+      }
+
+      .shop-now-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+      }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
+    }
+
+
+
+
+
+
+    @media (max-width: 768px) {
+
+      .nav-links,
+      .icons {
+        display: none;
+      }
+
+      .nav-links.show,
+      .icons.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        /* Adjust based on your header height */
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .product-grid1 {
+    padding: 10px;
+  }
+
+  .product-card1 {
+    font-size: 14px; /* general fallback */
+  }
+
+  .product-title {
+    font-size: 16px;
+  }
+
+  .product-category {
+    font-size: 13px;
+  }
+
+  .product-rating .stars i {
+    font-size: 14px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .product-price .current-price {
+    font-weight: bold;
+  }
+
+  .product-price .old-price,
+  .product-price .discount {
+    font-size: 12px;
+  }
+
+  .product-actions button {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .product-badge {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Tech<span style="color: red; font-family:'Orbitron', sans-serif;">ZONE..</span></div>
+    <button class="mobile-menu-btn">☰</button>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#head">Home</a></li>
+        <li><a href="#category">Category</a></li>
+        <li><a href="#featured">Featured Products</a></li>
+        <li><a href="#deals">Deals & Offers</a></li>
+        <li><a href="#newsletter">Subscribe</a></li>
+        <i class="fas fa-user" style="color: rgb(255, 61, 61); font-size: 17px; text-decoration: none;"><a
+            style="color: rgb(255, 61, 61);" href="{{ url_for('login') }}">LOGOUT</a></i>
+        <a href="{{ url_for('verification') }}">
+          <button class="shop-btn" style="color: rgb(53, 53, 255); font-size: 17px; font-weight: bold;"> <i
+              class="fas fa-shopping-cart">Cart-Products</i></button>
+      </ul>
+    </nav>
+    <span><i class="fas fa-shopping-cart"></i></span>
+    <!-- <div class="icons">
+
+      <span><i class="fas fa-shopping-cart"></i></span> -->
+    <!-- <li><span><i class="fas fa-user" style="color: rgb(255, 61, 61); font-size: 17px; text-decoration: none;"><a
+                style="color: rgb(255, 61, 61);" href="{{ url_for('login') }}">LOGOUT</a></i></span></li>
+        <li><a href="{{ url_for('verification') }}">
+            <button class="shop-btn" style="color: rgb(53, 53, 255); font-size: 17px; font-weight: bold;"> <i
+                class="fas fa-shopping-cart">Cart-Products</i></button>
+          </a>
+    </div> -->
+  </header>
+
+  <!-- head Section -->
+  <section id="head" class="hero">
+    <div class="hero-pattern"></div>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h1>Next Generation Tech For Your Digital Life</h1>
+        <p>Discover the latest gadgets, electronics and tech accessories at unbeatable prices with fast delivery
+          and excellent customer service.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn btn-primary">Shop Now</a>
+          <a href="{{ url_for('main') }}" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="static/images/banner.jpg" alt="Tech Products">
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section id="category" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="text-align: center; font-size: 44px; font-weight: 400; text-indent: 1%;">Shop by Category
+        </h2>
+        <p>Browse our wide range of tech categories to find exactly what you need</p>
+      </div>
+
+      <div class="categories">
+        <a href="#" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <h3>Laptops</h3>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Smartphones</h3>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-tablet-alt"></i>
+          </div>
+          <h3>Tablets</h3>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <h3>Gaming</h3>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-headphones"></i>
+          </div>
+          <h3>Audio</h3>
+
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Cameras</h3>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-tv"></i>
+          </div>
+          <h3>TVs</h3>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3>Accessories</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+
+  <section id="featured" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="text-align: center; font-size: 40px; font-weight: 900; text-indent: 1%;">Featured Products
+        </h2>
+        <p>Discover our most popular and high-quality tech products</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <span class="product-badge">New</span>
+
+          <div class="product-image">
+            <img src="static/images/mouse.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category"></p>
+            <h3 class="product-title">Apple MacBook Pro 14" M2 Pro Chip</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(128)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$199.00</span>
+              <span class="old-price">$2199.00</span>
+              <span class="discount">40% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="static/images/macbook2.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">laptop</p>
+            <h3 class="product-title">macbook pro</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(1256)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$6,099.00</span>
+              <span class="old-price">$8,199.00</span>
+              <span class="discount">12% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge">Best Seller</span>
+
+          <div class="product-image">
+            <img src="static/images/headset1.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Headophones</p>
+            <h3 class="product-title">boat Rockerz 450</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="rating-count">(89)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$450.00</span>
+              <span class="old-price">$1,199.00</span>
+              <span class="discount">60% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="static/images/speaker1.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Audio</p>
+            <h3 class="product-title">JBoss speaker</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(42)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$2499.99</span>
+              <span class="old-price">$3549.99</span>
+              <span class="discount">9% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="static/images/headset4.jpg" alt="AirPods Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Audio</p>
+            <h3 class="product-title">Apple AirPods Pro (2nd Gen)</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(10421)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$70.00</span>
+              <span class="old-price">$139.00</span>
+              <span class="discount">20% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="static/images/speaker2.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Audio</p>
+            <h3 class="product-title">alexza</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(11328)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,050.00</span>
+              <span class="old-price">$2,199.00</span>
+              <span class="discount">40% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="static/images/keyboard2.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Accessories</p>
+            <h3 class="product-title">APPLE Magic Keyboard</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(56)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$900.00</span>
+              <span class="old-price">$1,199.00</span>
+              <span class="discount">18% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="static/images/typec.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Accessories</p>
+            <h3 class="product-title">Type C Cable 2m</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="rating-count">(1289)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$19.00</span>
+              <span class="old-price">$25.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="static/images/charger.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Accessories</p>
+            <h3 class="product-title">Iphone wireless charger</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(3442)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$120.99</span>
+              <span class="old-price">$200.99</span>
+              <span class="discount">60% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge">New</span>
+
+          <div class="product-image">
+            <img src="static/images/remote.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Accessories</p>
+            <h3 class="product-title">Tech eco-remote</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(128)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$100.00</span>
+              <span class="old-price">$128.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="static/images/payment scanner.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Accessories</p>
+            <h3 class="product-title">Payment scanner</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(56)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$50.00</span>
+              <span class="old-price">$55.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge">Best Seller</span>
+
+          <div class="product-image">
+            <img src="static/images/walkman.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Headphones</p>
+            <h3 class="product-title">Walkman</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="rating-count">(12389)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$40.00</span>
+              <span class="old-price">$59.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="static/images/android9.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Phones</p>
+            <h3 class="product-title">One Plus 9</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(342)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$299.99</span>
+              <span class="old-price">$429.99</span>
+              <span class="discount">29% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge">New</span>
+
+          <div class="product-image">
+            <img src="static/images/android7.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">phones</p>
+            <h3 class="product-title">Huawei P70 Pro</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(143)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$340.00</span>
+              <span class="old-price">$480.00</span>
+              <span class="discount">30% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="static/images/android5.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Phones</p>
+            <h3 class="product-title">Motorola Edge 30</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(336)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$250.00</span>
+              <span class="old-price">$300.00</span>
+              <span class="discount">15% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <span class="product-badge">Best Seller</span>
+
+          <div class="product-image">
+            <img src="static/images/charger2.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Accessories</p>
+            <h3 class="product-title">Iphone Charger 10W</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(356789)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$80.00</span>
+              <span class="old-price">$99.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deals Section -->
+  <section class="deals-section">
+    <div class="container deals-container">
+      <div class="deals-content">
+        <h2>Flash Deals</h2>
+        <p>Don't miss out on these limited-time offers. Shop now before they're gone!</p>
+        <a href="#" class="btn btn-primary">View All Deals</a>
+      </div>
+
+      <div id="deals" class="container">
+        <!-- Items on SALE Banner (Large) -->
+        <div class="banner banner-sale">
+          <div class="banner-content">
+            <h2>Items on SALE</h2>
+            <p>Discounts up to 30 %</p>
+            <a href="#" class="shop-now-button">SHOP NOW</a>
+          </div>
+          <div class="banner-overlay"></div>
+        </div>
+
+        <!-- Right Side Banners (Stacked) -->
+        <div class="right-banners">
+          <!-- Combo Offers Banner -->
+          <div class="banner banner-small banner-combo">
+            <div class="banner-content">
+              <h2>Combo offers</h2>
+              <p>Discounts up to 50 %</p>
+              <a href="#" class="shop-now-button">SHOP NOW</a>
+            </div>
+            <div class="banner-overlay banner-overlay-small"></div>
+          </div>
+
+          <!-- Discount Coupons Banner -->
+          <div class="banner banner-small banner-discount">
+            <div class="banner-content">
+              <h2>Discount Coupons</h2>
+              <p>Discounts up to 100 %</p>
+              <a href="#" class="shop-now-button">SHOP NOW</a>
+            </div>
+            <div class="banner-overlay banner-overlay-small"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands Section 1 -->
+  <section class="sections">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="text-align: center; font-size: 40px;">Mobile and Tablets</h2>
+      </div>
+
+      <div class="Product-grid1">
+        <div class="product-card1">
+          <span class="product-badge">New</span>
+
+          <div class="product-image1">
+            <img src="static/images/andriod1.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Phones</p>
+            <h3 class="product-title"> Samsung foldable phone</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(128)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,999.00</span>
+              <span class="old-price">$2,199.00</span>
+              <span class="discount">10% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/android3.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Phones</p>
+            <h3 class="product-title">Samsung Galaxy S23 ultra</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(256)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$5,899.00</span>
+              <span class="old-price">$7,199.00</span>
+              <span class="discount">28% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">Best Seller</span>
+
+          <div class="product-image">
+            <img src="static/images/iphone1.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Phones</p>
+            <h3 class="product-title">iPhone 14 Pro 256GB</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="rating-count">(89)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,099.00</span>
+              <span class="old-price">$1,199.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/iphone2.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Phones</p>
+            <h3 class="product-title">Iphone Se</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(42)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1499.99</span>
+              <span class="old-price">$2149.99</span>
+              <span class="discount">39% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/iphone3.jpg" alt="AirPods Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Phones</p>
+            <h3 class="product-title"><i>Iphone 16 </i></h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(421)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1509.00</span>
+              <span class="old-price">$1249.00</span>
+              <span class="discount">20% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/tablet1.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Tablet</p>
+            <h3 class="product-title">iPad 10.2" 32GB</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(26)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,099.00</span>
+              <span class="old-price">$1,199.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/tablet2.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Tablets</p>
+            <h3 class="product-title">iPad Pro 12.9" M2 Chip 128GB</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="rating-count">(89)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,099.00</span>
+              <span class="old-price">$1,199.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/tablet3.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Tablets</p>
+            <h3 class="product-title">IPad 12.2" 64GB</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(842)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$2499.99</span>
+              <span class="old-price">$3549.99</span>
+              <span class="discount">29% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">New</span>
+
+          <div class="product-image">
+            <img src="static/images/android8.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Phone</p>
+            <h3 class="product-title">GALAXY note 9</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(128)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$199.00</span>
+              <span class="old-price">$219.00</span>
+              <span class="discount">10% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/android6.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Phones</p>
+            <h3 class="product-title">Google Pixel 7 Pro</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(56)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$599.00</span>
+              <span class="old-price">$719.00</span>
+              <span class="discount">13% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands Section 2 -->
+  <section class="sections">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="text-align: center; font-size: 40px;">Laptops and TVs</h2>
+      </div>
+
+      <div class="Product-grid1">
+        <div class="product-card1">
+
+          <div class="product-image1">
+            <img src="static/images/laptop1.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Laptops</p>
+            <h3 class="product-title">Microsoft Surface Laptop 4</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(128)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,999.00</span>
+              <span class="old-price">$2,199.00</span>
+              <span class="discount">10% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/laptop2.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">laptop</p>
+            <h3 class="product-title">HP Pavilion 15</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(256)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$5,099.00</span>
+              <span class="old-price">$8,199.00</span>
+              <span class="discount">40% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">Best Seller</span>
+
+          <div class="product-image">
+            <img src="static/images/laptop3.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Laptop</p>
+            <h3 class="product-title">Dell Inspiron 15</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="rating-count">(89)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$4,099.00</span>
+              <span class="old-price">$6,199.00</span>
+              <span class="discount">28% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/laptop4.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">laptop</p>
+            <h3 class="product-title">acer aspire 5</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(342)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$4499.99</span>
+              <span class="old-price">$5549.99</span>
+              <span class="discount">15% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">Hot Deal</span>
+          <div class="product-wishlist">
+            <i class="far fa-heart"></i>
+          </div>
+          <div class="product-image">
+            <img src="static/images/laptop5.jpg" alt="AirPods Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Laptop</p>
+            <h3 class="product-title">lenovo ideapad 3</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(41)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1999.00</span>
+              <span class="old-price">$3249.00</span>
+              <span class="discount">20% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/laptop6.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Laptop</p>
+            <h3 class="product-title">Asus TUF Gaming F15</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(256)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$4,099.00</span>
+              <span class="old-price">$7,199.00</span>
+              <span class="discount">38% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">Best Seller</span>
+
+          <div class="product-image">
+            <img src="static/images/laptop7.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Laptop</p>
+            <h3 class="product-title">ROG Zephyrus G14</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(89)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$3,099.00</span>
+              <span class="old-price">$4,199.00</span>
+              <span class="discount">12% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/monitor1.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">Gaming 3D Monitor:Tv</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(32)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$2499.99</span>
+              <span class="old-price">$5499.99</span>
+              <span class="discount">45% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">New</span>
+
+          <div class="product-image">
+            <img src="static/images/tv1.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Televisions</p>
+            <h3 class="product-title"> LG 55" 4K Smart TV</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(14)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,200.00</span>
+              <span class="old-price">$2,000.00</span>
+              <span class="discount">30% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/tv2.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Televisions</p>
+            <h3 class="product-title">Samsung 65" 4K Smart TV</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(26)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1959.00</span>
+              <span class="old-price">$2,199.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section id="newsletter" class="newsletter">
+    <div class="container">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Get the latest tech news, exclusive deals, and special offers delivered straight to your inbox.</p>
+
+      <form class="newsletter-form">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Brands Section 3 -->
+  <section class="sections">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="text-align: center; font-size: 40px;">Gaming and Audios</h2>
+      </div>
+
+      <div class="Product-grid1">
+        <div class="product-card1">
+          <span class="product-badge">New</span>
+
+          <div class="product-image1">
+            <img src="static/images/joysrick.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">Logitech Extreme 3D Pro</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(8)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$34.00</span>
+              <span class="old-price">$50.00</span>
+              <span class="discount">10% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/vr1.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">gaming</p>
+            <h3 class="product-title">Meta Quest 3</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+
+              </div>
+              <span class="rating-count">(256)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$5,099.00</span>
+              <span class="old-price">$9,199.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">Best Seller</span>
+
+          <div class="product-image">
+            <img src="static/images/vr2.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">Apple Vision Pro </h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="rating-count">(83129)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$10,099.00</span>
+              <span class="old-price">$12,199.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/gaming steering.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">Logitech G29 Driving Force Racing Wheel</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(342)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$499.99</span>
+              <span class="old-price">$549.99</span>
+              <span class="discount">9% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <div class="product-image">
+            <img src="static/images/xbox.jpg" alt="AirPods Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">Xbox Series X</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(421)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$199.00</span>
+              <span class="old-price">$249.00</span>
+              <span class="discount">20% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/ps5.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">playstation 5</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(256)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,099.00</span>
+              <span class="old-price">$1,199.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">Best Seller</span>
+
+          <div class="product-image">
+            <img src="static/images/ipad.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">Gaming ipod</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="rating-count">(89)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,099.00</span>
+              <span class="old-price">$1,199.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/gaming chair.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">Green Soul Blade Gaming Chair</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(642)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$109.99</span>
+              <span class="old-price">$249.99</span>
+              <span class="discount">9% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">New</span>
+
+          <div class="product-image">
+            <img src="static/images/keyboard1.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">Ant Esports MK801 V2 Pro Wireless Mechanical</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(1028)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,349.00</span>
+              <span class="old-price">$2,199.00</span>
+              <span class="discount">30% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/joystick2.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Gaming</p>
+            <h3 class="product-title">Sony DualSense</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(56)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,99.00</span>
+              <span class="old-price">$2,89.00</span>
+              <span class="discount">23% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands Section 4 -->
+  <section class="sections">
+    <div class="container">
+      <div class="section-title">
+        <h2 style="text-align: center; font-size: 40px;">Cameras and Accessories</h2>
+      </div>
+
+      <div class="Product-grid1">
+        <div class="product-card1">
+          <span class="product-badge">New</span>
+
+          <div class="product-image1">
+            <img src="static/images/gopro.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Cameras</p>
+            <h3 class="product-title">GoPro HERO12 Black</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(12)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,4500.00</span>
+              <span class="old-price">$2,199.00</span>
+              <span class="discount">10% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <div class="product-image">
+            <img src="static/images/lens2.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">accessories</p>
+            <h3 class="product-title">Sony FE 70‑200 mm f/2.8 GM OSS II</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(56)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1,099.00</span>
+              <span class="old-price">$1,899.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <span class="product-badge">Best Seller</span>
+
+          <div class="product-image">
+            <img src="static/images/cam3.jpg" alt="iPad Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">camera</p>
+            <h3 class="product-title">Canon EOS R50 Video Camera</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+              <span class="rating-count">(89)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$4,099.00</span>
+              <span class="old-price">$6,399.00</span>
+              <span class="discount">8% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/cam2.jpg" alt="PlayStation 5">
+          </div>
+          <div class="product-info">
+            <p class="product-category">camera</p>
+            <h3 class="product-title">Canon EOS R50</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(342)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$7955.99</span>
+              <span class="old-price">$9549.99</span>
+              <span class="discount">9% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <div class="product-wishlist">
+            <i class="far fa-heart"></i>
+          </div>
+          <div class="product-image">
+            <img src="static/images/len1.jpg" alt="AirPods Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Accessories</p>
+            <h3 class="product-title">Sony FE 50 mm f/1.8</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(421)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$199.00</span>
+              <span class="old-price">$249.00</span>
+              <span class="discount">20% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <div class="product-image">
+            <img src="static/images/cam1.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">camera</p>
+            <h3 class="product-title">Canon EOS R6 Mark II/h3>
+              <div class="product-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">(256)</span>
+              </div>
+              <div class="product-price">
+                <span class="current-price">$1,099.00</span>
+                <span class="old-price">$1,199.00</span>
+                <span class="discount">8% OFF</span>
+              </div>
+              <div class="product-actions">
+                <button class="add-to-cart">
+                  <i class=""></i> Add to Cart
+                </button>
+
+              </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+          <div class="product-image">
+            <img src="static/images/lightstick.jpg" alt="MacBook Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Accessories</p>
+            <h3 class="product-title">DIGITEK 14″ LED Ring Light</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="rating-count">(598)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$1200.00</span>
+              <span class="old-price">$2,,199.00</span>
+              <span class="discount">50% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card1">
+
+          <div class="product-image">
+            <img src="static/images/bag.jpg" alt="iPhone 14 Pro">
+          </div>
+          <div class="product-info">
+            <p class="product-category">Accessories</p>
+            <h3 class="product-title">Tygot Water‑Resistant Camera Backpack</h3>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <span class="rating-count">(56)</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">$199.00</span>
+              <span class="old-price">$600.00</span>
+              <span class="discount">40% OFF</span>
+            </div>
+            <div class="product-actions">
+              <button class="add-to-cart">
+                <i class=""></i> Add to Cart
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Company Info -->
+      <div class="footer-column">
+        <h2 class="logo">Tech<span>ZONE..</span></h2>
+        <p class="footer-text">
+          Discover the Future of Smart Tech Today.Advanced Tech for Everyday Convenience.Upgrade Your Gear
+          with Trusted Brands
+        </p>
+        <div class="social-icons">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-linkedin-in"></i>
+          <i class="fab fa-youtube"></i>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-column">
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Product</a></li>
+          <li><a href="#">Sale</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Help Section -->
+      <div class="footer-column">
+        <h4>HELP & INFO HELP</h4>
+        <ul>
+          <li><a href="#">TRACK YOUR ORDER</a></li>
+          <li><a href="#">RETURNS POLICIES</a></li>
+          <li><a href="#">SHIPPING + DELIVERY</a></li>
+          <li><a href="#">CONTACT US</a></li>
+          <li><a href="#">FAQS</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-column">
+        <h4>CONTACT US</h4>
+        <p class="footer-text">Do you have any queries or suggestions?</p>
+        <p><a href="mailto:yourinfo@gmail.com">TechZ@negmail.com</a></p>
+        <p class="footer-text">If you need support? Just give us a call.</p>
+        <p><strong>+91 7771 66662 33</strong></p>
+      </div>
+      <div class="footer-column">
+        <h4>Newsletter Sign-Up</h4>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+      <div class="copyright">
+
+        <p>© 2025 Discover the Future of Smart Tech Today. All rights reserved
+          TechZone. </p>
+      </div>
+  </footer>
+
+  <script>
+
+
+    // Mobile menu toggle functionality
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const icons = document.querySelector('.icons'); // Changed from navButtons to icons
+
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', function () {
+        navLinks.classList.toggle('show');
+        if (icons) {
+          icons.classList.toggle('show');
+        }
+      });
+    }
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function () {
+        navLinks.classList.remove('show');
+        if (icons) {
+          icons.classList.remove('show');
+        }
+      });
+    });
+
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function changeSlide(dir) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + dir + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const productGrid = document.querySelector('.products-grid');
+      const products = Array.from(document.querySelectorAll('.product-card'));
+      const loadMoreBtn = document.createElement('button');
+
+      // Create and style the Load More button
+      loadMoreBtn.className = 'load-more-btn';
+      loadMoreBtn.textContent = 'Load More';
+      loadMoreBtn.style.display = 'block';
+      loadMoreBtn.style.margin = '30px auto';
+      loadMoreBtn.style.padding = '12px 24px';
+      loadMoreBtn.style.backgroundColor = '#2563eb';
+      loadMoreBtn.style.color = 'white';
+      loadMoreBtn.style.border = 'none';
+      loadMoreBtn.style.borderRadius = '6px';
+      loadMoreBtn.style.cursor = 'pointer';
+      loadMoreBtn.style.fontWeight = '600';
+      loadMoreBtn.style.transition = 'all 0.3s';
+
+      // Hover effects for the button
+      loadMoreBtn.addEventListener('mouseenter', function () {
+        this.style.backgroundColor = '#1d4ed8';
+        this.style.transform = 'translateY(-2px)';
+      });
+
+      loadMoreBtn.addEventListener('mouseleave', function () {
+        this.style.backgroundColor = '#2563eb';
+        this.style.transform = 'translateY(0)';
+      });
+
+      // Initial state - show first 8 products
+      let visibleCount = 8;
+
+      // Hide all products beyond the initial visible count
+      products.forEach((product, index) => {
+        if (index >= visibleCount) {
+          product.style.display = 'none';
+        }
+      });
+
+      // Append the Load More button after the product grid
+      productGrid.parentNode.insertBefore(loadMoreBtn, productGrid.nextSibling);
+
+      // Add fade-in animation style
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .product-card {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    `;
+      document.head.appendChild(style);
+
+      // Load more functionality
+      loadMoreBtn.addEventListener('click', function () {
+        // Calculate the next set of products to show
+        const nextProducts = products.slice(visibleCount, visibleCount + 4);
+
+        // Show the next products with animation
+        nextProducts.forEach(product => {
+          product.style.display = 'block';
+          product.style.animation = 'fadeIn 0.5s ease-in-out';
+        });
+
+        // Update the visible count
+        visibleCount += 4;
+
+        // Hide the button if all products are visible
+        if (visibleCount >= products.length) {
+          loadMoreBtn.style.display = 'none';
+        }
+
+        // Smooth scroll to the newly loaded products
+        if (nextProducts.length > 0) {
+          nextProducts[0].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest'
+          });
+        }
+      });
+
+      // Initially hide the button if there are 8 or fewer products
+      if (products.length <= 8) {
+        loadMoreBtn.style.display = 'none';
+      }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Mobile menu toggle (would need additional HTML)
+    // Product quick view modal (would need additional HTML)
+    // Cart functionality (would need additional HTML)
+    // Newsletter form submission (would need backend integration)
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add to cart functionality
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function () {
+          // Works with both product-card and product-card1 classes
+          const productCard = this.closest('.product-card, .product-card1');
+          if (!productCard) return;
+
+          const product = {
+            id: productCard.querySelector('.product-title').textContent.trim().replace(/\s+/g, '-').toLowerCase(),
+            title: productCard.querySelector('.product-title').textContent.trim(),
+            price: parseFloat(productCard.querySelector('.current-price').textContent.replace(/[^\d.]/g, '')),
+            image: productCard.querySelector('.product-image img, .product-image1 img').src,
+            category: productCard.querySelector('.product-category')?.textContent.trim() || 'Uncategorized',
+            quantity: 1
+          };
+
+          // Get existing cart or create new one
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+          // Check if product already in cart
+          const existingItem = cart.find(item => item.id === product.id);
+          if (existingItem) {
+            existingItem.quantity += 1;
+          } else {
+            cart.push(product);
+          }
+
+          // Save to localStorage
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          // Show notification
+          showToast(`${product.title} added to cart!`);
+
+          // Update cart count
+          updateCartCount();
+        });
+      });
+
+      // Function to show toast notifications
+      function showToast(message) {
+        // Remove any existing toast first
+        const existingToast = document.querySelector('.toast-notification');
+        if (existingToast) existingToast.remove();
+
+        // Create toast element
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.textContent = message;
+
+        // Style the toast
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.right = '20px';
+        toast.style.backgroundColor = '#4CAF50';
+        toast.style.color = 'white';
+        toast.style.padding = '15px 25px';
+        toast.style.borderRadius = '4px';
+        toast.style.zIndex = '1000';
+        toast.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+        toast.style.animation = 'fadeIn 0.5s, fadeOut 0.5s 2.5s';
+
+        // Add to document
+        document.body.appendChild(toast);
+
+        // Remove after animation
+        setTimeout(() => {
+          toast.remove();
+        }, 3000);
+      }
+
+      // Update cart count in header/navigation
+      function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const cartIcons = document.querySelectorAll('.fa-shopping-cart');
+
+        // Update all cart icons
+        cartIcons.forEach(cartIcon => {
+          // Remove existing badge if any
+          const existingBadge = cartIcon.parentElement.querySelector('.cart-badge');
+          if (existingBadge) {
+            existingBadge.remove();
+          }
+
+          if (cartCount > 0) {
+            const badge = document.createElement('span');
+            badge.className = 'cart-badge';
+            badge.textContent = cartCount;
+
+            // Apply styles
+            Object.assign(badge.style, {
+              position: 'absolute',
+              top: '-8px',
+              right: '-8px',
+              backgroundColor: 'red',
+              color: 'white',
+              borderRadius: '50%',
+              width: '18px',
+              height: '18px',
+              fontSize: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            });
+
+            cartIcon.parentElement.style.position = 'relative';
+            cartIcon.parentElement.appendChild(badge);
+          }
+        });
+      }
+
+      // Add CSS for toast animations if not already present
+      if (!document.querySelector('style[data-toast-animations]')) {
+        const style = document.createElement('style');
+        style.setAttribute('data-toast-animations', 'true');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(20px); }
+            }
+        `;
+        document.head.appendChild(style);
+      }
+
+      // Initialize cart count on page load
+      updateCartCount();
+    });
+
+    //alert('Order placed successfully!');
+    cartItems = [];
+    saveCart();
+    renderCart();
+
+  </script>
+</body>
+
+</html>
