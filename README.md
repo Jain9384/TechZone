@@ -88,6 +88,8 @@ You can deploy using Gunicorn or Waitress as configured in `requirements.txt`.
 ![Home Page](main.png)
 ![Product Catalog](products.png)
 ![login Page](login.png)
+![gmail](gmail.png)
+![gmail verification](verfication.png)
 
 
 ## License
