@@ -26,12 +26,11 @@
 
 Showcasing the clean and modern user interface built with custom CSS and FontAwesome icons.
 
-| Page | Screenshot |
-| :--- | :--- |
-| **Home Page** | `![Home Page](main.png)` |
-| **Product Catalog** | `![Product Catalog](products.png)` |
-| **Login Page** | `![Login Page](login.png)` |
-| **Email Verification** | `![Gmail Verification Prompt](verfication.png)` |
+Page,Screenshot,Corrected Path (Example)
+Home Page,![Home Page](main.png),![Home Page](main.png)
+Product Catalog,![Product Catalog](products.png),![Product Catalog](products.png)
+Login Page,![Login Page](login.png),![Login Page](login.png)
+Email Verification,![Email Verification Prompt](verfication.png),![Email Verification Prompt](verfication.png)
 
 ---
 
