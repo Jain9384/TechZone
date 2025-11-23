@@ -22,6 +22,12 @@
 
 ---
 
+## 🔐 Demo Credentials
+
+- **Username**: `tech1`
+- **Password**: `virtual@123`
+
+
 ## 📸 Application Screenshots
 
 Showcasing the clean and modern user interface built with custom CSS and FontAwesome icons.
