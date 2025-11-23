@@ -22,6 +22,65 @@
 
 ---
 
+---
+
+
+
+## Getting Started
+
+
+
+### Prerequisites
+
+
+
+- Python 3.8+
+
+- [pip](https://pip.pypa.io/en/stable/)
+
+
+
+### Installation
+
+
+
+1. Clone the repository:
+
+    ```sh
+
+    git clone https://github.com/yourusername/techzone.git
+
+    cd techzone
+
+    ```
+
+
+
+2. Install dependencies:
+
+    ```sh
+
+    pip install -r requirements.txt
+
+    ```
+
+
+
+### Running the App
+
+
+
+Start the Flask development server:
+
+```sh
+
+python app.py
+
+```
+
+The app will be available at [http://localhost:5000](http://localhost:5000).
+
+
 ## 🔐 Demo Credentials
 
 - **Username**: `tech1`
