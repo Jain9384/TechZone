@@ -15,7 +15,7 @@ VALID_USERNAME = "tech1"
 VALID_PASSWORD = "virtual@123"
 
 # Gmail config
-GMAIL_USER = os.getenv('GMAIL_USER', 'johnjain2002@gmail.com')
+GMAIL_USER = os.getenv('GMAIL_USER', 'your_mail_id')
 GMAIL_PASSWORD = os.getenv('GMAIL_PASSWORD', 'your gmail_password')
 GMAIL_SMTP = 'smtp.gmail.com'
 GMAIL_PORT = 465
